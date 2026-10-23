@@ -342,7 +342,8 @@ async def create(request: Request):
         t0 = time.time_ns()
         try:
             plan, m0, m1 = await make_plan(body)
-        except Exception:
+        except Exception as e:
+            print("PLANNER ERROR:", type(e).__name__, repr(e)[:500], flush=True)
             return err(502, "planner failed")
         tp = parse_traceparent(request.headers.get("traceparent"))
         run = {"runId": rid, "requestHash": h, "marker": body["publicMarker"], "agentName": body["agentName"],
