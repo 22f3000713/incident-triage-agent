@@ -19,9 +19,13 @@ except ImportError:  # schema check is optional
 
 PROFILE = "ga5-incident-agent/v2"
 DB_FILE = os.getenv("DB_FILE", "runs.json")
-LLM_BASE = os.getenv("LLM_BASE_URL", "https://api.openai.com/v1")
-LLM_KEY = os.getenv("LLM_API_KEY", "")
-LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
+# LLM_BASE = os.getenv("LLM_BASE_URL", "https://api.openai.com/v1")
+# LLM_KEY = os.getenv("LLM_API_KEY", "")
+# LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
+
+LLM_BASE = "https://aipipe.org/openai/v1"
+LLM_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIyZjMwMDA3MTNAZHMuc3R1ZHkuaWl0bS5hYy5pbiIsImlhdCI6MTc5MjY0Mjk3NCwiaXNzIjoiaHR0cHM6Ly9haXBpcGUub3JnIiwiYXVkIjoiYWlwaXBlLWFwaSIsImV4cCI6MTc5MzI0Nzc3NH0.XxRidSftin-sCMgcOAUrlfXmFpaYA7JUwEXiLla8rjk"
+LLM_MODEL = "gpt-4.1-mini"
 
 app = FastAPI()
 locks = defaultdict(asyncio.Lock)
